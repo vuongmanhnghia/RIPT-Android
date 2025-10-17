@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_add"
+        android:title="Thêm"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_filter"
+        android:title="Lọc">
+        <menu>
+            <item
+                android:id="@+id/menu_filter_all"
+                android:title="Tất cả" />
+            <item
+                android:id="@+id/menu_filter_pending"
+                android:title="Chưa hoàn thành" />
+            <item
+                android:id="@+id/menu_filter_completed"
+                android:title="Đã hoàn thành" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_delete_all"
+        android:title="Xóa tất cả" />
+
+    <item
+        android:id="@+id/menu_about"
+        android:title="Giới thiệu ứng dụng" />
+
+</menu>
+
