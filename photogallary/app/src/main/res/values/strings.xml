@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Photo Gallery</string>
+    <string name="btn_show_all">📷 Tất cả</string>
+    <string name="btn_show_favorites">⭐ Yêu thích</string>
+    <string name="all_photos_title">Tất cả ảnh:</string>
+    <string name="favorite_photos_title">Ảnh yêu thích (%1$d):</string>
+    <string name="no_favorites">Chưa có ảnh yêu thích nào</string>
+</resources>

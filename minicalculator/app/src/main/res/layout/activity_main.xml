@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1C1C1C"
+    tools:context=".MainActivity">
+
+    <!-- Display Card (giống màn hình máy tính) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDisplay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#2C2C2C"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.35">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- History ScrollView -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lịch sử"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginBottom="8dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tvHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa có phép tính nào"
+                    android:textSize="14sp"
+                    android:textColor="#AAAAAA"
+                    android:fontFamily="monospace"
+                    android:padding="8dp" />
+            </ScrollView>
+
+            <!-- Current Expression -->
+            <TextView
+                android:id="@+id/tvExpression"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                android:textColor="#CCCCCC"
+                android:gravity="end"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light" />
+
+            <!-- Result Display -->
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="48sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:gravity="end"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-thin" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Input & Buttons Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardInputButtons"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#2C2C2C"
+        app:layout_constraintTop_toBottomOf="@id/cardDisplay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Input Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#1C1C1C"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/etNumber1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:hint="Số 1"
+                    android:textColorHint="#666666"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="•"
+                    android:textSize="24sp"
+                    android:textColor="#888888"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/etNumber2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:hint="Số 2"
+                    android:textColorHint="#666666"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+            <!-- Calculator Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <!-- Row 1: Operation Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FF9500">
+
+                        <Button
+                            android:id="@+id/btnAdd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="+"
+                            android:textSize="32sp"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:background="?attr/selectableItemBackground"
+                            style="?android:attr/borderlessButtonStyle" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FF9500">
+
+                        <Button
+                            android:id="@+id/btnSub"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="-"
+                            android:textSize="32sp"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:background="?attr/selectableItemBackground"
+                            style="?android:attr/borderlessButtonStyle" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FF9500">
+
+                        <Button
+                            android:id="@+id/btnMul"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="×"
+                            android:textSize="32sp"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:background="?attr/selectableItemBackground"
+                            style="?android:attr/borderlessButtonStyle" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FF9500">
+
+                        <Button
+                            android:id="@+id/btnDiv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="÷"
+                            android:textSize="32sp"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:background="?attr/selectableItemBackground"
+                            style="?android:attr/borderlessButtonStyle" />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Row 2: Clear Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#505050">
+
+                        <Button
+                            android:id="@+id/btnClear"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="C"
+                            android:textSize="28sp"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:background="?attr/selectableItemBackground"
+                            style="?android:attr/borderlessButtonStyle" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#D32F2F">
+
+                        <Button
+                            android:id="@+id/btnClearHistory"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackground"
+                            android:text="Xóa lịch sử"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
